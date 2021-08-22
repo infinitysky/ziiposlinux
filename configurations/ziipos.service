@@ -1,0 +1,17 @@
+[Unit]
+Description=ZiiPOS Server Serices
+After=network.target
+
+[Service]
+Type=simple
+User=ziitech
+Restart=on-failure
+RestartSec=5s
+WorkingDirectory=/home/ziitech/ZiiPOS/
+ExecStart=/usr/bin/dotnet /home/ziitech/ZiiPOS/Zii.Quokka.Api.dll
+SyslogIdentifier=ZiiPOS
+KillSignal=SIGINT
+
+
+[Install]
+WantedBy=multi-user.target
